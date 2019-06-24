@@ -1,0 +1,21 @@
+<el-card>
+    <!-- 面包屑导航 -->
+    <bread one="权限管理" two="权限列表" />
+    <!-- 表格 -->
+    <el-table class="mytable" :data="rightsList" style="width: 100%">
+        <el-table-column type="index">
+        </el-table-column>
+        <el-table-column prop="authName" label="权限名称" width="180">
+        </el-table-column>
+        <el-table-column prop="path" label="路径" width="180">
+        </el-table-column>
+        <el-table-column label="层级">
+            <template slot-scope="scope">
+                <!-- {{ scope.row.level === '0' ? '一级' : scope.row.level === '1'? '二级' : '三级' }} -->
+                <span v-if="scope.row.level === '0'">一级</span>
+                <span v-if="scope.row.level === '1'">二级</span>
+                <span v-if="scope.row.level === '2'">三级</span>
+            </template>
+        </el-table-column>
+    </el-table>
+</el-card>

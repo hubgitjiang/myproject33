@@ -14,26 +14,26 @@
 
 <script>
 export default {
-    methods: {
-        logout() {
-            this.$confirm('您确定要退出吗?', '提示', {
-                confirmButtonText: '确定',
-                cancelButtonText: '取消',
-                type: 'warning'
-            }).then(() => {
-                // 清除 token
-                window.localStorage.removeItem('token')
-                // 跳转到登录页面
-                // this.$router.push('/login') // 以 path 属性为基准进行跳转
-                this.$router.push({ name: 'login' }) // 以 name 属性为基准进行跳转
-                // 提示退出成功
-                this.$message({
-                    message: '退出成功',
-                    type: 'success'
-                })
-            })
-        }
+  methods: {
+    logout () {
+      this.$confirm('您确定要退出吗?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        // 清除 token
+        window.localStorage.removeItem('token')
+        // 跳转到登录页面
+        // this.$router.push('/login') // 以 path 属性为基准进行跳转
+        this.$router.push({ name: 'login' }) // 以 name 属性为基准进行跳转
+        // 提示退出成功
+        this.$message({
+          message: '退出成功',
+          type: 'success'
+        })
+      })
     }
+  }
 }
 </script>
 <style>

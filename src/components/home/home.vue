@@ -24,21 +24,21 @@ import TopHead from '@/components/layout/topHead'
 import Sidebar from '@/components/layout/sidebar'
 
 export default {
-    components: {
-        TopHead: TopHead,
-        Sidebar: Sidebar
-    },
-    // mounted: 当 vue 加载完成后执行
-    mounted() {
-        // 获取 token
-        let token = window.localStorage.getItem('token')
-        // 判断是否存在 
-        if (!token) {
-            // 跳转到登录页面
-            this.$router.push('/login')
-            this.$message.error('您还没有登录，请先登录')
-        }
-    }
+  components: {
+    TopHead: TopHead,
+    Sidebar: Sidebar
+  },
+  // mounted: 当 vue 加载完成后执行
+  mounted () {
+    // // 获取 token
+    // let token = window.localStorage.getItem('token')
+    // // 判断是否存在
+    // if (!token) {
+    //   // 跳转到登录页面
+    //   this.$router.push('/login')
+    //   this.$message.error('您还没有登录，请先登录')
+    // }
+  }
 }
 </script>
 
