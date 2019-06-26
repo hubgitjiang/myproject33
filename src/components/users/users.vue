@@ -120,7 +120,7 @@
 import bread from '../layout/breadnav.vue'
 
 export default {
-  data() {
+  data () {
     return {
       // 数据源
       tableData: [],
@@ -166,7 +166,7 @@ export default {
   },
   methods: {
     // 获取数据源的方法
-    getDataList() {
+    getDataList () {
       // 通过 axios
       this.$http({
         method: 'GET',
@@ -195,30 +195,30 @@ export default {
       })
     },
     // 当分页组件的当前页改变时触发
-    curChange(currentPage) {
+    curChange (currentPage) {
       // 将 currentPage 赋值给 pagenum:
       this.pagenum = currentPage
       // 重新请求数据
       this.getDataList()
     },
     // 当页容量发生改变时触发
-    sizeChange(pagesize) {
+    sizeChange (pagesize) {
       // 将 pagesize 赋值给 this.pagesize
       this.pagesize = pagesize
       // 重新请求
       this.getDataList()
     },
     // 搜索相关数据
-    search() {
+    search () {
       this.pagenum = 1
       this.getDataList()
     },
     // 打开新增面板
-    openAdd() {
+    openAdd () {
       this.addDialog = true
     },
     // 点击新增的取消
-    addCancle() {
+    addCancle () {
       this.addDialog = false
       // 清除新增数据
       this.addUser.username = ''
@@ -227,7 +227,7 @@ export default {
       this.addUser.mobile = ''
     },
     // addUserFn:提交新增的数据
-    addUserFn() {
+    addUserFn () {
       this.$http({
         method: 'POST',
         url: 'users',
@@ -257,7 +257,7 @@ export default {
       })
     },
     // 删除方法
-    del(id) {
+    del (id) {
       // 根据 id 去服务器中删除数据
       this.$http({
         method: 'delete',
@@ -277,7 +277,7 @@ export default {
       })
     },
     // 编辑方法：
-    edit(id) {
+    edit (id) {
       // 根据 id 得到数据
       this.$http({
         method: 'GET',
@@ -296,7 +296,7 @@ export default {
       this.editDialog = true
     },
     // 提交修改数据
-    editUserFn() {
+    editUserFn () {
       this.$http({
         method: 'PUT',
         url: `users/${this.editUser.id}`,
@@ -321,7 +321,7 @@ export default {
       this.editDialog = false
     },
     // 打开角色分配 框
-    roles(id) {
+    roles (id) {
       // 动态获取下拉框中的数据
       this.$http({
         method: 'GET',
@@ -354,7 +354,7 @@ export default {
       this.rolesDialog = true
     },
     // roleUserfn: 提交用户角色信息
-    roleUserfn() {
+    roleUserfn () {
       this.$http({
         method: 'PUT',
         url: `users/${this.roleUser.id}/role`,
@@ -375,7 +375,7 @@ export default {
       })
     },
     // 当开关状态改变时触发
-    selChange(uid, type) {
+    selChange (uid, type) {
       this.$http({
         method: 'put',
         url: `users/${uid}/state/${type}`
@@ -392,7 +392,7 @@ export default {
       })
     }
   },
-  mounted() {
+  mounted () {
     this.getDataList()
   },
   components: {

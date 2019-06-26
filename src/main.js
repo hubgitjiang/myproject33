@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Element from 'element-ui'
+import Eltree from 'element-tree-grid'
 import 'element-ui/lib/theme-chalk/index.css'
 // 引入 myaxios 插件
 import myaxios from '@/assets/js/myaxios.js'
@@ -16,6 +17,9 @@ Vue.config.productionTip = false
 Vue.use(Element)
 // 使用插件
 Vue.use(myaxios)
+
+// 注册一个全局组件
+Vue.component(Eltree.name, Eltree)
 
 /* eslint-disable no-new */
 new Vue({

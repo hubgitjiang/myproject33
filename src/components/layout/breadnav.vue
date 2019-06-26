@@ -8,7 +8,7 @@
 
 <script>
 export default {
-    props: ['one', 'two']
+  props: ['one', 'two']
 }
 </script>
 

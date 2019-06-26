@@ -5,8 +5,11 @@ import UseElement from '../components/useElement/useElement.vue'
 import Login from '../components/login/login.vue'
 import Home from '../components/home/home.vue'
 import Users from '@/components/users/users'
-import Rights from '@/components/rights/rights'
+import Rights from '@/components/rights/rights.vue'
 import Roles from '@/components/roles/roles'
+import Categories from '@/components/categories/categories.vue'
+import UseTree from '@/components/useElement/useEltree.vue'
+import userjl from '@/components/useElement/usejl.vue'
 
 Vue.use(Router)
 
@@ -16,6 +19,8 @@ let router = new Router({
     // 重定向：
     { path: '/', redirect: '/home' },
     { path: '/useElement', name: 'useElement', component: UseElement }, // 使用 element 的路由
+    { path: '/useTree', name: 'useTree', component: UseTree }, // 使用 element 的路由
+    { path: '/userjl', name: 'userjl', component: userjl }, // 使用 element 的路由
     { path: '/login', name: 'login', component: Login }, // 登录的路由
     {
       path: '/home',
@@ -25,6 +30,7 @@ let router = new Router({
         { path: '/users', name: 'users', component: Users },
         { path: '/rights', name: 'rights', component: Rights },
         { path: '/roles', name: 'roles', component: Roles },
+        { path: '/categories', name: 'categories', component: Categories }
       ]
     }
   ]
@@ -40,7 +46,7 @@ router.beforeEach(function (to, from, next) {
   if (to.name !== 'login') {
     // 获取 token
     let token = window.localStorage.getItem('token')
-    // 判断是否存在 
+    // 判断是否存在
     if (!token) {
       // 跳转到登录页面
       router.push('/login') // 以前的 this 指的是 vue 的实例对象（vue, 组件）

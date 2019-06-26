@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       // 登录数据
       useObj: {
@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     // 登录：提交数据
-    login() {
+    login () {
       // 先判断参数是否合法
       // validate:验证 form 中的元素是否合法，如果合法返回 true，否则 false
       this.$refs.ruleForm.validate(valid => {

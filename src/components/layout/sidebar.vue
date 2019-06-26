@@ -45,7 +45,7 @@
                 <i class="el-icon-s-grid"></i>
                 <span>分类参数</span>
             </el-menu-item>
-            <el-menu-item index="3-3">
+            <el-menu-item index="/categories">
                 <i class="el-icon-s-grid"></i>
                 <span>商品分类</span>
             </el-menu-item>
