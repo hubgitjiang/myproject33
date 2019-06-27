@@ -32,16 +32,16 @@
         <el-dialog title="新增分类" :visible.sync="adddialog">
             <el-form>
                 <el-form-item label="分类名称" :label-width="formLabelWidth">
-                    <el-input autocomplete="off"></el-input>
+                    <el-input v-model="cateName" autocomplete="off"></el-input>
                 </el-form-item>
                 <el-form-item label="选择分类" :label-width="formLabelWidth">
                     {{ jlvalue }}
-                    <el-cascader v-model="jlvalue" :options="jlData" :props="propsObj"></el-cascader>
+                    <el-cascader clearable v-model="jlvalue" :options="jlData" :props="propsObj"></el-cascader>
                 </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click="adddialog = false">取 消</el-button>
-                <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+                <el-button type="primary" @click="addCateFn">确 定</el-button>
             </div>
         </el-dialog>
     </el-card>
@@ -79,8 +79,12 @@ export default {
             propsObj: {
                 expandTrigger: 'hover',
                 label: 'cat_name',
-                value: 'cat_id'
-            }
+                value: 'cat_id',
+                // 任意选中
+                checkStrictly: true
+            },
+            // 新增分类的名称
+            cateName: ''
         }
     },
     components: {
@@ -147,6 +151,34 @@ export default {
             // 打开面板
             this.adddialog = true
             this.getJLData()
+        },
+        // 添加分类
+        addCateFn() {
+            // cat_pid
+            // 判断是否有给分类选择父分类，如果选择取最后一项为父 id
+            // 如果没有，则为 0
+            var pid = this.jlvalue.length === 0 ? 0 : this.jlvalue[this.jlvalue.length - 1]
+            // cat_level
+            // 接收数据发送请求
+            this.$http({
+                url: 'categories',
+                method: 'post',
+                data: {
+                    cat_name: this.cateName, // 分类名称
+                    cat_pid: pid, // 父分类 id
+                    cat_level: this.jlvalue.length
+                }
+            }).then(res => {
+                let { meta } = res.data
+                if (meta.status === 201) {
+                    this.$message.success(meta.msg)
+                    // 刷新数据
+                    this.getCateList()
+                } else {
+                    this.$message.error(meta.msg)
+                }
+            })
+            this.adddialog = false
         }
     },
     mounted() {

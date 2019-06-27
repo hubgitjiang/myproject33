@@ -195,7 +195,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scope>
 .mybtn {
   margin-top: 20px;
 }

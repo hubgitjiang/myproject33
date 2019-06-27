@@ -10,6 +10,8 @@ import Roles from '@/components/roles/roles'
 import Categories from '@/components/categories/categories.vue'
 import UseTree from '@/components/useElement/useEltree.vue'
 import userjl from '@/components/useElement/usejl.vue'
+import Goods from '@/components/goods/goods.vue'
+import Add from '@/components/add/add.vue'
 
 Vue.use(Router)
 
@@ -30,7 +32,9 @@ let router = new Router({
         { path: '/users', name: 'users', component: Users },
         { path: '/rights', name: 'rights', component: Rights },
         { path: '/roles', name: 'roles', component: Roles },
-        { path: '/categories', name: 'categories', component: Categories }
+        { path: '/categories', name: 'categories', component: Categories },
+        { path: '/goods', name: 'goods', component: Goods },
+        { path: '/goods/add', name: 'add', component: Add }
       ]
     }
   ]
