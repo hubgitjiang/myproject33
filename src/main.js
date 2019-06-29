@@ -11,6 +11,17 @@ import myaxios from '@/assets/js/myaxios.js'
 // @ 表示的是 src 目录
 import '@/assets/css/index.css'
 
+// 导入富文本编辑框
+
+import VueQuillEditor from 'vue-quill-editor'
+
+// require styles
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+
+Vue.use(VueQuillEditor)
+
 Vue.config.productionTip = false
 
 // 使用 element

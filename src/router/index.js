@@ -1,17 +1,19 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // 引入组件
-import UseElement from '../components/useElement/useElement.vue'
-import Login from '../components/login/login.vue'
-import Home from '../components/home/home.vue'
-import Users from '@/components/users/users'
-import Rights from '@/components/rights/rights.vue'
-import Roles from '@/components/roles/roles'
-import Categories from '@/components/categories/categories.vue'
-import UseTree from '@/components/useElement/useEltree.vue'
-import userjl from '@/components/useElement/usejl.vue'
-import Goods from '@/components/goods/goods.vue'
-import Add from '@/components/add/add.vue'
+const UseElement = () => import('../components/useElement/useElement.vue')
+const Login = () => import('../components/login/login.vue')
+const Home = () => import('../components/home/home.vue')
+const Users = () => import('@/components/users/users')
+const Rights = () => import('@/components/rights/rights.vue')
+const Roles = () => import('@/components/roles/roles')
+const Categories = () => import('@/components/categories/categories.vue')
+const UseTree = () => import('@/components/useElement/useEltree.vue')
+const userjl = () => import('@/components/useElement/usejl.vue')
+const Goods = () => import('@/components/goods/goods.vue')
+const Add = () => import('@/components/add/add.vue')
+const orders = () => import('@/components/orders/orders.vue')
+const reports = () => import('@/components/reports/reports.vue')
 
 Vue.use(Router)
 
@@ -34,7 +36,9 @@ let router = new Router({
         { path: '/roles', name: 'roles', component: Roles },
         { path: '/categories', name: 'categories', component: Categories },
         { path: '/goods', name: 'goods', component: Goods },
-        { path: '/goods/add', name: 'add', component: Add }
+        { path: '/goods/add', name: 'add', component: Add },
+        { path: '/orders', name: 'orders', component: orders },
+        { path: '/reports', name: 'reports', component: reports }
       ]
     }
   ]
